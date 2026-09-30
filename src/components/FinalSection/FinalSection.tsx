@@ -22,6 +22,11 @@ export default function FinalSection() {
         <Reveal className="rule final__rule" delay={400}>
           <span className="diamond" aria-hidden="true">◆</span>
         </Reveal>
+        <Reveal delay={480}>
+          <p className="final__foot">
+            {wedding.bride} &amp; {wedding.groom} — {wedding.date}
+          </p>
+        </Reveal>
       </div>
     </section>
   );

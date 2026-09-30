@@ -1,4 +1,5 @@
-import { wedding, features } from "@/data/wedding";
+import { features } from "@/data/wedding";
+import Pager from "@/components/Pager";
 import Hero from "@/components/Hero/Hero";
 import CoupleSection from "@/components/CoupleSection/CoupleSection";
 import WeddingDate from "@/components/WeddingDate/WeddingDate";
@@ -11,7 +12,7 @@ import MusicToggle from "@/components/MusicToggle/MusicToggle";
 
 export default function Page() {
   return (
-    <main>
+    <Pager>
       <Hero />
       <CoupleSection />
       <WeddingDate />
@@ -20,10 +21,7 @@ export default function Page() {
       <CountdownSection />
       <Location />
       <FinalSection />
-      <footer className="footer">
-        {wedding.bride} &amp; {wedding.groom} — {wedding.date}
-      </footer>
       {features.music && <MusicToggle />}
-    </main>
+    </Pager>
   );
 }
