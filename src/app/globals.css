@@ -1,0 +1,196 @@
+/* ============================================================
+   DESIGN TOKENS — Warm Beige × Brown × Editorial
+   ============================================================ */
+:root {
+  --color-bg: #f3ede3;
+  --color-surface: #eae2d4;
+  --color-surface-2: #e2d7c3;
+  --color-ink: #43342a;
+  --color-ink-soft: #6b5847;
+  --color-muted: #97836f;
+  --color-line: #c8b9a2;
+  --color-line-soft: #ddd2bd;
+  --color-white: #fbf8f2;
+
+  /* mock image tones */
+  --tone-cream: #ece1cd;
+  --tone-beige: #d8c8ac;
+  --tone-sand: #cbb694;
+  --tone-mocha: #a98a68;
+  --tone-brown: #7a5f45;
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Jost", "Avenir Next", "Segoe UI", sans-serif;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+  --space-2xl: 10rem;
+
+  --container: 72rem;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  color: inherit;
+}
+
+::selection {
+  background: var(--color-surface-2);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink-soft);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.serif-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 6vw, 4rem);
+}
+
+.section {
+  padding-block: clamp(var(--space-xl), 12vw, var(--space-2xl));
+  position: relative;
+}
+
+.center {
+  text-align: center;
+}
+
+/* ============================================================
+   ORNAMENTS / DIVIDERS
+   ============================================================ */
+.rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-muted);
+}
+
+.rule::before,
+.rule::after {
+  content: "";
+  height: 1px;
+  width: clamp(3rem, 12vw, 7rem);
+  background: var(--color-line);
+}
+
+.rule .diamond {
+  font-size: 0.8rem;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s var(--ease),
+    transform 0.9s var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+@import "./sections.css";
